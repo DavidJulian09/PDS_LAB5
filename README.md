@@ -1,4 +1,4 @@
 # PDS_LAB5
-Quinta Práctica
+Para la practica numero 5,
 
 # 1 librerias
