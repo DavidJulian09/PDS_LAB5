@@ -4,5 +4,6 @@ Para la práctica número 5 de laboratorio se tuvo como  como objetivo la toma y
 El sistema nervioso autónomo (SNA) es el ecaecagado de la  regulacion de las funciones funciones involuntarias del cuerpo esta tiene sos sistemas importantes.
 
 A) simpático:Este es el sistema el cualse actuva por situaciones de estrés o emergencia o mejor conocido como("respuesta de lucha o huida"). Este sistema al activarse actua aumentando la frecuencia cardíaca, dilata las pupilas, reduce la actividad digestiva, entre otros efectos.
+
 B) parasimpático:Este sistema es el que se relaja o permite el descanso y la digestión ya que este disminuye la frecuencia cardíaca, contrae las pupilas y estimula la digestión este se conoce como el sistema de ("respuesta de reposo y digestión").
 # 1 librerias
