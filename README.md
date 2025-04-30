@@ -20,13 +20,27 @@ Se considera un indicador de la regulación autónoma del corazón de las cuales
 Alta HRV: buen equilibrio autónomo y mayor predominancia parasimpática.
 Baja HRV: estrés, fatiga o predominancia simpática.
 
+
 Frecuencias de interés en HRV (análisis espectral):
+
+
 ULF (Ultra Low Frequency): < 0.003 Hz
 VLF (Very Low Frequency): 0.003 – 0.04 Hz
 LF (Low Frequency): 0.04 – 0.15 Hz → asociado a actividad simpática y parasimpática.
 HF (High Frequency): 0.15 – 0.4 Hz → refleja actividad parasimpática (respiratoria).
 LF/HF Ratio: se usa como indicador del balance simpático-parasimpático.
 ## D. Transformada de wevelet 
+la transformada wavelet es una herramienta matemática para descomponer una señal en componentes de tiempo y frecuencia simultáneamente. A diferencia de la transformada de Fourier, permite análisis multiresolución (alta resolución temporal para frecuencias altas y alta resolución frecuencial para frecuencias bajas).
+
+Usos en señales biológicas:
+
+Análisis de señales no estacionarias, como ECG, EEG o HRV.
+
+Detección de eventos transitorios, picos, cambios de frecuencia.
+
+Estimación del contenido espectral en diferentes momentos.
+
+
 
 ## E.
 
