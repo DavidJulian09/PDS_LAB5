@@ -11,6 +11,8 @@ B) Parasimpático: este sistema es el que se relaja o permite el descanso y la d
 # 2. Efecto de la actividad simpática y parasimpática en la frecuencia cardíaca
 Simpático: Aumenta la frecuencia cardíaca al liberar noradrenalina, que actúa sobre los receptores beta-adrenérgicos del corazón.
 Parasimpático: Disminuye la frecuencia cardíaca mediante la liberación de acetilcolina sobre receptores muscarínicos, principalmente a través del nervio vago
+# 3. variabilidad de la frecuencia cardiaca (HVR)
+
 # 2. Conversión Análogo-Digital
 
 ![Image](Imagenes/PuertosSTM.png)
