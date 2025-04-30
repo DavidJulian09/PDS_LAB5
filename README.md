@@ -38,11 +38,8 @@ Usos en señales biológicas:
 
 -Estimación del contenido espectral en diferentes momentos.
 
-## E.Esquema 
-
-![Captura de pantalla 2025-04-30 182340](https://github.com/user-attachments/assets/5fb52c63-e0a7-4490-bbef-bc4f977a97bf)
-
-
+### E.Esquema 
+![Captura de pantalla 2025-04-30 183340](https://github.com/user-attachments/assets/20cb900e-df05-44a8-84e1-0154f4d90854)
 
 # 2. Conversión Análogo-Digital
 
