@@ -8,7 +8,9 @@ El sistema nervioso autónomo (SNA) es el encargado de la regulación de las fun
 A) Simpático: este es el sistema el cual se actua por situaciones de estrés o emergencia o mejor conocido como("respuesta de lucha o huida"). Este sistema al activarse actua aumentando la frecuencia cardíaca, dilata las pupilas, reduce la actividad digestiva, entre otros efectos.
 
 B) Parasimpático: este sistema es el que se relaja o permite el descanso y la digestión ya que este disminuye la frecuencia cardíaca, contrae las pupilas y estimula la digestión este se conoce como el sistema de ("respuesta de reposo y digestión").
-
+# 2. Efecto de la actividad simpática y parasimpática en la frecuencia cardíaca
+Simpático: Aumenta la frecuencia cardíaca al liberar noradrenalina, que actúa sobre los receptores beta-adrenérgicos del corazón.
+Parasimpático: Disminuye la frecuencia cardíaca mediante la liberación de acetilcolina sobre receptores muscarínicos, principalmente a través del nervio vago
 # 2. Conversión Análogo-Digital
 
 ![Image](Imagenes/PuertosSTM.png)
