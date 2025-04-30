@@ -33,7 +33,7 @@ LF/HF Ratio: se usa como indicador del balance simpático-parasimpático.
 ![Image](Imagenes/PuertosSTM.png)
 
 
-# 1. Incluison de librerias 
+# 2.1 Incluison de librerias 
     #include "main.h"
     #include "usb_device.h"
     #include "usbd_cdc_if.h"
@@ -41,11 +41,11 @@ LF/HF Ratio: se usa como indicador del balance simpático-parasimpático.
     #include <string.h>
 En esta sección, se importan las librerías necesarias para el procesamiento de señales, específicamente las siguientes dos son funamentales: usb_device.h la cual nos permite la inicialización y manejo general de la USB y usbd_cdc_if.h la cual nos da la interfaz para la comunicación tipo CDC (puerto serie virtual), las cuales son una base para que la STM32 se comunique con el computador por USB como si fuera un cable serial.
 
-# 2. Declaración de variable
+# 2.2 Declaración de variable
     uint32_t Conversor[2] = {0, 0};
 Esta variable esta declarada para un arreglo de dos enteros de 32 bits sin signo, donde esta recibiendo datos del ADC (conversor análogo digital) y el Conversor [0] es el que se usa en la transmisión USB.
 
-# 3. Bucle principal y transmisión USB
+# 2.3 Bucle principal y transmisión USB
 
     while (1)
     {
@@ -58,3 +58,10 @@ Esta variable esta declarada para un arreglo de dos enteros de 32 bits sin signo
     }
 
 Este es el bucle principal del programa el cual se ejecuta indefinidamente y su función es leer un valor y convertirlo en texto y enviarlo al computador a través del puerto USB como si fuera un puerto COM virtual, tenemos la variable: uint8_t resultado; la cual almacena el estado de la transmisión, esta se utiliza para comprobar si el buffer está disponible (USBD_OK) o está ocupado (USBD_BUSY) y también encontramos un conversor:  sprintf(datos, "%lu\r\n", Conversor[0]); el cual convierte el valor numérico de Conversor[0] a texto, %lu indica que es un entero largo sin signo (uint32_t), \r\n agrega un salto de línea para que en el monitor serial los valores aparezcan en líneas separadas y por ultimo los datos debe estar definidos previamente como: char datos[64]; o similar.
+
+# 2.4 Transmisión segura por USB
+    do {
+    resultado = CDC_Transmit_FS((uint8_t*)datos, strlen(datos));
+    } while (resultado == USBD_BUSY);
+
+    
