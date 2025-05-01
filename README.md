@@ -153,6 +153,47 @@ esta parte es muy importante para terminar la parte de MATLAB donde elimina el o
 
 
 # 3. programacion de python 
+## A. Lectura y visualización de la señal ECG
+    df = pd.read_csv(file_path)
+    tiempo = df.iloc[:, 0].values  
+    voltaje = df.iloc[:, 1].values 
+
+Aca se puede cargar como tan un archivo CSV con dos columnas en las cuales se define tanto tiempo como el voltaje del ECG, para luego poder estimar la frecuencia de muestreo que se da en fs a partir de cada uno de los tiempos dados como ya se sabe esto es crucial para una buena estimacion de la fecuencia en fs.
+
+## B. Filtrado pasa banda (IIR Butterworth)
+
+     # Pasa Altos: elimina la deriva de línea (< 0.5 Hz)
+     # Pasa Bajos: elimina ruido de alta frecuencia (>40 Hz)
+
+En esta parte se aplica un filtro pasa banda de 0.5 a 40 Hz, el cual es el mas apto para la señal del ECG ya que este tiene unos puntos importantes primero elimina artefactos de baja frecuencia (como movimientos), tambien elimina ruido de alta frecuencia (como interferencia eléctrica o muscular) ya que este proceso de filtrado permite ver claramente los picos R sin distorsiones.
+
+## C. Detección de picos R
+
+    find_peaks(ecg_filtered, height=umbral, distance=...)
+    
+Aca como tal se detectan los picos R de la señal ECG, que son los máximos que representan cada latido cardíaco. Pra este se usa primero 
+una altura mínima basada en la media + 0.6 esta es la  desviación estándar y una distancia mínima entre picos (basada en 180 bpm ≈ 0.33 s) asi  mismo para detectar  los picos R correctamente es clave para analizar la variabilidad cardíaca.
+
+## D. Cálculo de intervalos R-R (RR intervals)
+
+     rr_intervals_sec = np.diff(peaks_indices) / fs
+
+A ca muestra como los intervalos RR indican el tiempo entre latidos sucesivos. Se grafica el tacograma, que muestra cómo varían estos intervalos en el tiempo, el análisis de estos intervalos es el corazón del análisis HRV.
+
+## E. Medidas clásicas de HRV (tiempo)
+
+     mean_rr = np.mean(rr_intervals_sec)
+     sdnn = np.std(rr_intervals_sec)
+
+Bueno aca tenemos las medidas de HVR iniciando con el Mean RR este es el promedio de los intervalos el cual nos indica el ritmo cardíaco medio, tambien esta el SDNN que este ya es la desviación estándar de los RR el cual ya mide es la  variabilidad, entre mayor SDNN generalmente indica mayor capacidad de regulación autónoma.
+
+## F. Análisis espectral con Transformada Wavelet (CWT)
+
+    coefficients, frequencies = pywt.cwt(rr_interpolated, scales, wavelet_name)
+
+Bueno finalmente aca tenemos la parte donde se interpolan los intervalos RR a una frecuencia constante de (4 Hz)en este se aplica la Transformada Wavelet Continua (CWT) para estudiar la variación en frecuencia a lo largo del tiempo para asi mismo graficar el espectro de potencia, la potencia en banda LF (0.04–0.15 Hz) , la potencia en banda HF (0.15–0.4 Hz) y tambien el índice LF/HF que es te ya es el cociente entre ambas bandas el cual nos permite estudiar el equilibrio simpático-parasimpático del sistema nervioso autónomo.
+
+
 
 
 
