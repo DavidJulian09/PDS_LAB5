@@ -204,6 +204,8 @@ Bueno finalmente aca tenemos la parte donde se interpolan los intervalos RR a un
 
 ## 1. 
 
+Esta grafica nos muestra una señal ECG filtrada durante 60 segundos con un rango de aproximadamente -1.5 V a +1.5 V, en el eje X está el tiempo en segundos y en el eje Y Amplitud/Voltaje, la señal muestra una secuencia repetitiva de picos los cual es característico de los complejos QRS en un ECG, se observan picos agudos con una frecuencia aparente  de entre 1 y 2 Hz, lo cual es compatible con una frecuencia cardiaca de 60 a 120 latidos por minuto, la señal tiene una línea base estable ( sin grandes desviaciones verticales), lo cual indica bueno calidad del contacto con los electrodos y estabilidad durante la medición. 
+## 2. 
 
 
 ## Resultados de los analisis 
