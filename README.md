@@ -232,6 +232,8 @@ Esta grafica representa la detección de picos R, la señal azul es el ECG filtr
 ## H. Evolucion temporal de potencia de bandas LF y HF
 ![image](https://github.com/user-attachments/assets/5dfdc4aa-86b1-4fd2-835e-dd1d3bca2b3e)
 
+Finalmente se presenta la potencia de las bandas alta frecuencia (HF) y de baja frecuencia (LF), la banda de frecuencia de HF se observa que tiene una concordancia con el ratio LF/HF tal como lo esperado; además de que, en el punto mas alto de LF a su vez se puede observar que también influye sobre su ratio. Todo la anterior teniendo en cuenta que durante  la toma de la señal hubo espacios donde se incrementaba la actividad simpática que a su vez incrementaba la potencia HF.
+
 ## 5. Resultados de los analisis 
 
     Aplicado Filtro Pasa-Altos de 0.5 Hz
