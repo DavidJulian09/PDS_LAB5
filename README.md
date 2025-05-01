@@ -223,11 +223,17 @@ Esta grafica representa la detección de picos R, la señal azul es el ECG filtr
 ## E. Serie de intervalos R-R
 ![image](https://github.com/user-attachments/assets/837865a8-a5cc-4556-973f-3ff75d4f0cc4)
 
+En la presente gráfica se muestra la serie de intervalos en R-R, esta grafica lo que nos permite interpretar es que tanto varia la frecuencia cardiaca en el intervalo de tiempo que se estableció. Como se observa, en el eje X se presentan los segundos transcurridos, mientras que en el eje Y se presenta el tiempo transcurrido en cada intervalo R-R; evidentemente los intervalos son distintos entre si, esto es justo lo que se esperaba ya que se tomo una señal que variaba en el tiempo a causa del incremento en la frecuencia cardiaca, los puntos en donde se acercan a 600ms simboliza que el corazón presenta una ligera taquicardia, mientras los que están por encima de este valor por un margen muy grande se podría deber a posibles ruidos de artefacto, ya que no debería de variar tanto.
+
 ## F. Serie R-R original vs interpolada
 ![image](https://github.com/user-attachments/assets/4cf89b47-51d5-46bb-8197-5cd3bb7eed5a)
 
+En esta grafica se puede observar que hay una concordancia casi exacta de los puntos originales R-R con la interpolación, cabe resaltar que aquí fue donde se aplicó una resolución temporal de 4Hz, frecuencia suficiente para capturar las variaciones en la banda LF y Hf. Volviendo al análisis de la relación de los datos, su correlación muestra una correcta interpolación entre ambos datos.
+
 ## G. Espectograma Wavelet (CWT) de la serie R-R
 ![image](https://github.com/user-attachments/assets/1ad7052b-1470-49a7-b41f-665a1ac09b9f)
+
+El diagrama de Wavlet muestra la potencia presentada por la frecuencia propia del ECG, sin embargo, se ve que hay ausencia de potencia lo cual no es normal, ya que significaría una bradipnea crónica lo cual no es el caso si se toman en cuenta los resultados anteriores. La razón por la que no se presenta potencia alguna se podría deber a un exceso en los filtros aplicados, una mínima frecuencia de interpolación o ruido de artefacto extrañamente alto, las dos primeras opciones se deben de descartar por lo que si este fuera el caso no se habría de podido graficar los intervalos R-R ni su interpolación.
 
 ## H. Evolucion temporal de potencia de bandas LF y HF
 ![image](https://github.com/user-attachments/assets/5dfdc4aa-86b1-4fd2-835e-dd1d3bca2b3e)
