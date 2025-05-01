@@ -88,6 +88,69 @@ Este envía datos usando CDC_Transmit_FS(), si el buffer USB esta ocupado lo rei
 Estos archivos son parte del middleware USB generado automáticamente por STM32CubeMX cuando activa la clase CDC en el stack USB del microcontrolador, se permite implementar la comunicación por USB como si fuera un puerto serial (COM) entre la STM32 y el computador.
 -	usbd_cdc_if.h: este archivo de cabecera. Define las funciones y variables que se pueden usar desde otros archivos del proyecto.
 -	usbd_cdc_if.c: este archivo contiene la implementación real del comportamiento del CDC, es decir, lo que ocurre cuando se transmite o recibe algo por USB.
+# 2. MATLAB
+
+## A. Configuración inicial
+    puertoserial = 'COM3'; 
+    frecuencia = 9600; 
+    duration = 350;       
+    outputFile = 'señal_ECG.csv';
+
+En esta sección encontramos cuatro variables las cuales nos permiten personalizar el código fácilmente sin tener que modificar otras partes, la primera de ellas es el puertoserial el cual define a donde esta conectado el microcontrolador en este caso COM3, la segunda es frecuencia donde debe coincidir con la que se configuro en el arduino, la tercera es duration lo que hace referencia a la duración de la adquisición en segundos en este caso 350 segundos y la ultima de ellas es outputFile la cual permite nombrar el archivo donde se guardan los datos.
+
+## B. Conexión al dispositivo e inicialización
+    s = serialport(puertoserial, frecuencia);
+    configureTerminator(s, "LF");
+
+    timeVec = [];
+    signalVec = [];
+Esta parte abre la comunicación con el microcontrolador y prepara los vectores donde se almacenará la señal adquirida, se establece la conexión serial donde se usa el puerto y la frecuencia que se configuro antes (puertoserial, frecuencia) y configureTerminator indica que cada dato termina con un salto de línea (\n), como suele enviarse desde Arduino con Serial.println() y pora completar se utilizan dos variables para guardar los datos timeVec para almacenar los tiempos de cada muestra y signalVec para almacenar los voltajes convertidos desde el ADC.
+    
+## C. Preparación de la gráfica
+    figure('Name', 'ECG', 'NumberTitle', 'off');
+    h = plot(NaN, NaN);
+    xlabel('Tiempo (s)');
+    ylabel('Voltaje (V)');
+    title('Señal EMG en Tiempo Real');
+    xlim([0, 25]);
+    ylim([0, 3.3]);
+    grid on;
+En esta parte, el código abre una figura en MATLAB para mostrar la señal a medida que se recibe. Se grafica el voltaje en función del tiempo usando un gráfico que se actualiza continuamente. Cada nuevo dato recibido se convierte en voltaje, se añade a los vectores de tiempo y señal, y luego se actualiza el gráfico con los nuevos datos. Además, el eje X se ajusta dinámicamente para mostrar los últimos segundos, creando un efecto de desplazamiento de la señal en tiempo real.
+
+## D. Bucle de adquisición
+    startTime = datetime('now');
+    while seconds(datetime('now') - startTime) < duration
+Este bloque controla la duración total del proceso de adquisición de datos. Una vez transcurrido el tiempo especificado, el ciclo while termina, y el programa continúa con el guardado de datos y cierre del puerto.
+
+    if s.NumBytesAvailable > 0
+    datos = readline(s);
+    valor = str2double(datos);
+    voltage = (valor*3.3)/4095;
+    segundos = seconds(datetime('now') - startTime);
+Para esta parte se utilizó readline(s) la cual lee una línea desde el puerto, también se utilizo str2double(datos el cual convierte el valor leído a número y por ultimo se convierte el valor digital a voltaje por medio de la siguiente ecuacion: v= valor* 3.3/4095.  
+Asume un ADC de 12 bits (2¹² = 4096 valores → de 0 a 4095).
+
+    if ~isnan(voltage)
+    timeVec = [timeVec; segundos];
+    signalVec = [signalVec; voltage];
+Este bloque protege la integridad de los datos adquiridos, asegurando que solo se almacenen valores numéricos válidos y descartando lecturas erróneas o incompletas provenientes del microcontrolador, se utilizo isnan(voltage) para verifica si el valor de voltaje no es un número válido (NaN significa "Not a Number") y isnan(voltage): verifica si el valor de voltaje no es un número válido (NaN significa "Not a Number") y  el símbolo ~ es una negación. Entonces esta condición solo se cumple si el voltaje sí es un número válido.isnan(...): el símbolo ~ es una negación. Entonces esta condición solo se cumple si el voltaje sí es un número válido.
+
+     idx = timeVec >= (segundos-60);
+    set(h, 'XData', timeVec, 'YData', signalVec);
+    xlim([max(0, segundos - 15), max(15, segundos)])
+    drawnow;
+La variable idx se define pero no se usa se puedes eliminar o usar si se quiere mostrar solo una ventana móvil de los últimos segundos, se utilizo drawnow actualiza la figura y xlim desplaza el eje X para mostrar los últimos segundos en pantalla.
+
+## E. Guardado de datos
+    T = table(timeVec, signalVec, 'VariableNames', {'Tiempo (s)', 'Voltaje (V)'});
+    writetable(T, outputFile);
+    
+En esta parte se permite conservar los datos registrados durante la adquisición para su análisis posterior, organiza la información de forma clara, con nombres de columnas entendibles y facilita la exportación de resultados para informes o gráficos en otros entornos.
+
+## F. limpieza
+    clear s
+esta parte es muy importante para terminar la parte de MATLAB donde elimina el objeto s para cerrar correctamente la conexión serial.
+
 
 # 3. programacion de python 
 
