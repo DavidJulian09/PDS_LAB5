@@ -201,6 +201,22 @@ Bueno finalmente aca tenemos la parte donde se interpolan los intervalos RR a un
 
 # 4. Analisis de graficas de python 
 # graficas 
+## A
+![image](https://github.com/user-attachments/assets/ea4a2a8a-a0e2-4e7f-a215-93a13e88e595)
+## B
+![image](https://github.com/user-attachments/assets/ccb4ad1f-fc61-4264-91f6-195b4e36d2bb)
+## C
+![image](https://github.com/user-attachments/assets/c86815d1-1aa5-43b4-b828-9e0f235bb310)
+## D
+![image](https://github.com/user-attachments/assets/d1d68def-aaee-4577-b982-8d785cdcc062)
+## E
+![image](https://github.com/user-attachments/assets/837865a8-a5cc-4556-973f-3ff75d4f0cc4)
+## F
+![image](https://github.com/user-attachments/assets/4cf89b47-51d5-46bb-8197-5cd3bb7eed5a)
+## G
+![image](https://github.com/user-attachments/assets/1ad7052b-1470-49a7-b41f-665a1ac09b9f)
+## H
+![image](https://github.com/user-attachments/assets/5dfdc4aa-86b1-4fd2-835e-dd1d3bca2b3e)
 
 ## 1. 
 
