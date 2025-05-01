@@ -89,5 +89,13 @@ Estos archivos son parte del middleware USB generado automáticamente por STM32C
 -	usbd_cdc_if.h: este archivo de cabecera. Define las funciones y variables que se pueden usar desde otros archivos del proyecto.
 -	usbd_cdc_if.c: este archivo contiene la implementación real del comportamiento del CDC, es decir, lo que ocurre cuando se transmite o recibe algo por USB.
 
+# 3. programacion de python 
+
+
+
+
+
+# 4. Analisis de graficas de python 
+
 
     
