@@ -200,6 +200,47 @@ Bueno finalmente aca tenemos la parte donde se interpolan los intervalos RR a un
 
 
 # 4. Analisis de graficas de python 
+# graficas 
 
+## 1. 
+
+
+
+## Resultados de los analisis 
+
+    Aplicado Filtro Pasa-Altos de 0.5 Hz
+    Advertencia: Frecuencia de corte Pasa-Bajas (40.0 Hz) es mayor o igual a Nyquist (6.279158856039967 Hz). Ajustando a Nyquist*0.99 
+    para cumplir el teorema.
+    Aplicado Filtro Pasa-Bajos de o menor 6.22 Hz
+    Detectando picos R con altura > 0.230 y distancia mínima > 4 muestras (0.33 s)
+    Número de picos R detectados: 73
+    Intervalo R-R promedio: 807.34 ms
+    Desviacion estandar Intervalo R-R: 196.54 ms
+    Calculando CWT con wavelet 'cmor1.5-1.0'...
+
+# Análisis general del procesamiento y resultados
+## A. Preprocesamiento (Filtros)
+## Filtro Pasa-Altos de 0.5 Hz:
+Este se  usa para eliminar el componente de baja frecuencia o "deriva de línea base"  estos son movimientos del cuerpo, respiración lenta o cualquier interferecia de la señal en pate externa tambien tiene los puntos fisiologicos mas relevantes 
+
+## Filtro Pasa-Bajos de 40 Hz Ajustado a 6.22 Hz
+Esto ocurre porque la frecuencia de muestreo es baja (probablemente 12.56 Hz), y el teorema de Nyquist obliga a no filtrar por encima de la mitad de la frecuencia de muestreo, entoces para esto  se aplicó un filtro a 6.22 Hz como pasa-bajos pero asi mismo limita algunas capturas de lata frecuencia los cuales son útiles para la banda HF del HRV que idealmente se debería trabajar con un ECG muestreado a mayor frecuencia  de mas o menos(≥ 200 Hz).
+
+## Detección de picos R
+Altura mínima 0.230
+Distancia mínima entre picos  4 muestras = 0.33 s  este equivale a un máximo de 180 lpm, lo cual es razonable para evitar falsos positivos.
+Picos R detectados estos fueron 73 lo cual indica que el algoritmo detectó correctamente los latidos cardíacos del ECG durante el intervalo registrado de los 5 minutos de prueba para el laboratorio 
+
+## Análisis del Intervalo R-R
+RR promedio  807.34 ms este es el que equivale a una frecuencia cardíaca de 60/0.80734 lo cual nos da74.3lpm.
+SDNN (desviación estándar del RR)  196.54 ms  el cual es un valor moderadamente alto lo que nbos puede indicar una variabilidad significativa del ritmo cardíaco esto se daria o se vincula a ser una fisiológica o causada por artefactos.
+
+## Análisis en frecuencia del HRV
+Potencia banda LF 0.0614 Banda LF (0.04 – 0.15 Hz) Refleja actividad simpática y parasimpática
+potencia banda HF 0.1764 Banda HF (0.15 – 0.4 Hz) Se relaciona principalmente con la actividad parasimpática (controlada por la respiración).
+Ratio LF/HF 0.3483 Ratio LF/HF bajo (<1): Indica predominio del tono parasimpático, lo cual suele estar asociado con relajación o descanso.
+
+## Transformada Wavelet Continua)
+bueno finalmente aca se usa para obtener una representación del tiempo-frecuencia del ECG el cual nos permite visualizar cómo cambian las frecuencias a lo largo del tiempo, y es útil para analizar latidos anómalos o cambios súbitos, se usó la wavelet `'cmor1.5-1.0'`, la cual es adecuada para señales como el ECG por su buena resolución temporal y frecuencial.
 
     
