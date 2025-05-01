@@ -207,14 +207,17 @@ Bueno finalmente aca tenemos la parte donde se interpolan los intervalos RR a un
 Esta grafica nos muestra una señal ECG filtrada durante 60 segundos con un rango de aproximadamente -1.5 V a +1.5 V, en el eje X está el tiempo en segundos y en el eje Y Amplitud/Voltaje, la señal muestra una secuencia repetitiva de picos los cual es característico de los complejos QRS en un ECG, se observan picos agudos con una frecuencia aparente  de entre 1 y 2 Hz, lo cual es compatible con una frecuencia cardiaca de 60 a 120 latidos por minuto, la señal tiene una línea base estable ( sin grandes desviaciones verticales), lo cual indica bueno calidad del contacto con los electrodos y estabilidad durante la medición. 
 ## B.
 ![image](https://github.com/user-attachments/assets/ccb4ad1f-fc61-4264-91f6-195b4e36d2bb)
+
 Esta grafica nos muestra una señal ECG original donde en el eje X se presenta el tiempo en segundos (0 a -60s) y en el eje Y se muestra la Amplitud/Voltaje en voltios (1.0 a 3.3 V), se tiene una estructura rítmica visible aunque no esta filtrada, se puede ver eventos repetitivos con picos prominentes (posiblemente los complejos QRS), lo cual indica que la señal tiene un ritmo subyacente perceptible y por el lado del potencial clínico a pesar del ruido, se nota una regularidad en los picos, lo cual sugiere que la señal base es buena y puede analizarse adecuadamente después de aplicar un filtro.
 
 ## C.
 ![image](https://github.com/user-attachments/assets/c86815d1-1aa5-43b4-b828-9e0f235bb310)
+
 Esta grafica nos muestra una señal EMG antes y después del filtrado, en el eje X se encuentra el tiempo en segundos (s) y en el eje Y voltaje(v), ante las curvas se encuentra la señar originan representada por el color gris claro y la señal filtrada representada de color rojo, la señal original tiene un nivel de voltaje alto (1.5-3.3 V) típico de una señal sin normalizar o sin filtrar, presenta bastante ruido de alta frecuencia lo que dificulta identificar patrones musculares claros, la línea base esta elevada (alrededor de 1.7 V) indicando que no está centrada en cero y la señal filtrada se ha centrado alrededor de 0 V, lo que facilita si análisis y visualización, se eliminó la mayoría del ruido de alta frecuencia y el desplazamiento de línea base, ahora se aprecian mejor los eventos musculares (picos y contracciones) con mayor nitidez y definición y se conserva la estructura general de la señal lo que indica que el filtro no distorsiono la información útil.
 
 ## D.
 ![image](https://github.com/user-attachments/assets/d1d68def-aaee-4577-b982-8d785cdcc062)
+
 Esta grafica representa la detección de picos R, la señal azul es el ECG filtrada (señal limpia centrada en 0 V), los puntos rojos hacen referencia a las posiciones donde de detectaron los picos R ( componentes del complejo QRS), tiene una duración de 60 segundos y una amplitud de -1.5 V a 1.5, en el eje X se representa el tiempo en segundos (s) y en el eje Y la Amplitud/Voltaje (V),  se presenta una detección precisa donde los puntos rojos están correctamente ubicados sobre los picos mas altos de la señal que corresponden a los picos R del ECG donde se observan con regularidad lo que indica una frecuencia cardiaca estable, la señal ECG esta claramente filtrada, con ruido reducido y líneas base estabilizada lo cual permitió una detección confiable delos picos, minimizando los falsos positivos o negativos.
 
 ## E.
