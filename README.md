@@ -149,7 +149,7 @@ En esta parte se permite conservar los datos registrados durante la adquisición
 
 ## F. limpieza
     clear s
-esta parte es muy importante para terminar la parte de MATLAB donde elimina el objeto s para cerrar correctamente la conexión serial.
+Esta parte es muy importante para terminar la parte de MATLAB donde elimina el objeto s para cerrar correctamente la conexión serial.
 
 
 # 3. programacion de python 
